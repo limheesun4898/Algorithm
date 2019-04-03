@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdbool.h> //bool, true, false 자료형 
+#define MAX  10
+int stack[MAX] = {0,};
+int top = -1;
+bool PUSH(int value){
+	if(top >= MAX -1){ // top 위치로 오버플로 검사
+		printf("stack Overflow\n");
+		return false;
+	}
+	top++;
+	stack[top] = value;
+	
+	printf("PUSH[%d]\n",value);
+	
+	return true;
+}
+bool POP(){
+	if(top == -1){ // 언더플로 검사
+		printf("stack underflow\n");
+		return false;
+	}
+	
+	printf("POP[%d]\n", stack[top]);
+	top--;
+	
+	return true;
+	
+}
+int main(void) {
+	for(int i=0;i<11; i++) //0~10까지 배열 만들고 pop
+		PUSH((i+1)*10); //pop값 10~100자리 돌려서 넣어주기
+		
+	for(int j=0; j<11; j++)
+		POP();
+		
+	return 0;
+}
