@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<algorithm>
+#include<stdlib.h>
+
+int main(){
+	int test, n;
+	
+	scanf("%d",&test);
+	
+	int *a = (int*)malloc(sizeof(int) *test);
+	
+	for(int i = 0; i < test; i++){
+		scanf("%d",&n);
+		a[i] = n;
+	}
+	std::sort(a,a+test);
+	printf("%d",a[test-1] - a[0]);
+}
