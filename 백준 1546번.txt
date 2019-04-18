@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(void) {
+	int testcase,temp = -100,b;
+	float a[1000], avg = 0;
+	scanf("%d",&testcase);
+	
+	for(int i = 0 ; i< testcase; i++){
+		scanf("%d",&b);
+		a[i] = b;
+		if(b > temp)
+			temp = b;
+	}
+	
+	for(int j = 0; j< testcase; j++){
+		a[j] = a[j]/temp*100;
+		avg += a[j];
+	}
+	printf("%.2f",avg/testcase);
+}
