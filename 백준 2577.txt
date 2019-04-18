@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main(){
+	int A,B,C;
+	int count[10] = {0,} ,list[100];
+	
+	scanf("%d",&A);
+	scanf("%d",&B);
+	scanf("%d",&C);
+	
+	int sum = A*B*C;
+	int index = 0;
+	while(sum != 0){
+		list[index] = sum % 10;
+		sum = sum / 10;
+		index += 1;
+	}
+
+	for(int i=0; i<index; i++){
+		count[list[i]] ++ ;
+	}
+	for(int i=0; i<10; i++){
+		printf("%d\n", count[i]);
+	}
+	
+	return 0;
+}

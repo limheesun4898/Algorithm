@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+	int C, N;
+	scanf("%d", &C);
+	
+	for(int i=0; i<C; i++){
+		scanf("%d", &N);
+		// 점수를 받는다. 
+		int score;
+		// avg는 평균을 저장하는 변슈  
+		int avg = 0;
+		// 점수를 저장할 배열  
+		int * scoreList = (int*)malloc(sizeof(int) * N);
+		for(int j=0; j<N; j++){
+			scanf("%d", &score);
+			scoreList[j] = score;
+			avg += score;
+		}
+		avg /= N;
+	
+		int count = 0;
+		for(int j=0; j<N; j++){
+			if(scoreList[j] >  avg){
+				count++;
+			}
+		}
+		
+		printf("%.3f%%\n", (float)count/N * 100);
+		
+		free(scoreList);
+	}
+	return 0;
+}

@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int n,m;
+int G[102][102] = {0,};
+int visit[102];
+int result = 0;
+int a,b;
+void dfs(int k){
+	visit[k] = 1;
+
+	for(int i=1; i <= n; i++){
+		if(G[k][i] == 1 && !visit[i] ){
+			result++;
+			dfs(i);
+		}
+	}
+	
+}
+
+int main(){
+	scanf("%d",&n);
+	scanf("%d",&m);
+	for(int i = 1; i<=m; i++){
+	
+		scanf("%d %d",&a,&b);
+		G[a][b] = G[b][a] = 1;
+	}
+
+	dfs(1);
+	printf("%d",result);
+}

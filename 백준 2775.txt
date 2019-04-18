@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int main(){
+	int n,floor1,floor2;
+	int G[15][15] = {0,};
+	
+	for(int i =  0; i<15; i++){
+		for(int j = 0; j<15; j++){
+			G[0][j] = j;	
+		}
+		G[i][1] = 1;
+	}
+	
+	for(int i =  1; i<15; i++){
+		for(int j = 1; j<15; j++){
+			G[i][j] = G[i-1][j]+ G[i][j-1];
+		}
+		
+	}
+	
+	scanf("%d",&n);
+	
+	for(int i = 0;  i<n; i++){
+		scanf("%d",&floor1);
+		scanf("%d",&floor2);
+		printf("%d\n",G[floor1][floor2]);
+	}
+}

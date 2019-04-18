@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+	int input,sum,i=0;
+	scanf("%d",&input);
+	sum=input;
+	
+	while(1)
+	{
+		sum = sum%10*10+((sum/10+sum%10)%10);
+		
+		i++;
+		if(sum==input)
+		{
+			break;
+		}
+		
+	}
+	printf("%d",i);
+}

@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<algorithm>
+
+using namespace std;
+int n, map[27][27];
+int danjigesu, danji[630];
+int BFS(int a, int b);
+int main(){
+	scanf("%d",&n);
+	for(int i =0;i<=(n+1); i++){
+		for(int j = 0; j <=(n+1); j++){
+			map[i][i] = -1;
+		}
+	}
+	for(int i =1; i<=n; i++){
+		for(int j  =1; j<=n; j++){
+			scanf("%1d",&map[i][j]);
+		}
+	}
+	for(int i =1; i<=n; i++){
+		for(int j = 1 ;j<=n; j++){
+			if(map[i][j] ==  1){
+				danjigesu++;
+				BFS(i,j);
+			}
+		}
+	
+	}
+	printf("%d\n",danjigesu);
+	sort(danji+1, danji+danjigesu+1);
+	for(int i =1;i<=danjigesu; i++)
+		printf("%d\n",danji[i]);	
+		
+}
+int BFS(int a, int b){
+	map[a][b]  = 0, danji[danjigesu]++;
+	if(map[a-1][b]==1) BFS(a-1,b);
+	if(map[a+1][b]==1) BFS(a+1,b);
+	if(map[a][b-1]==1) BFS(a,b-1);
+	if(map[a][b+1]==1) BFS(a,b+1);
+}
